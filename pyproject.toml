@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biasops"
+version = "0.1.0"
+description = "Policy-as-code enforcement for AI governance."
+requires-python = ">=3.10"
+authors = [{name = "Sai Vineeth Kandappareddigari", email = "hello@biasops.ai"}]
+dependencies = [
+    "fairlearn>=0.10.0",
+    "scikit-learn>=1.3.0",
+    "pandas>=2.0.0",
+    "pyyaml>=6.0",
+    "click>=8.1.0",
+    "joblib>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.scripts]
+biasops = "biasops.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["biasops*"]
+
+[tool.setuptools.package-data]
+biasops = ["policies/**/*.yaml", "policies/POLICIES_VERSION"]
