@@ -1,6 +1,5 @@
 from __future__ import annotations
 import warnings
-from typing import Optional
 import pandas as pd
 from fairlearn.metrics import (MetricFrame, demographic_parity_ratio, selection_rate)
 from sklearn.metrics import accuracy_score

@@ -4,10 +4,8 @@ from __future__ import annotations
 import warnings
 
 import numpy as np
-import pandas as pd
-import pytest
 
-from biasops.adapter import collect, LOW_SAMPLE_THRESHOLD
+from biasops.adapter import collect
 
 
 # ---------------------------------------------------------------------------
@@ -92,7 +90,7 @@ class TestCollectBasic:
         y_true = [1, 0, 1, 0, 1]
         y_pred = [1, 0, 1, 1, 1]
         sf = ["a", "a", "a", "b", "b"]
-        with warnings.catch_warnings(record=True) as w:
+        with warnings.catch_warnings(record=True) as _w:  # noqa: F841
             warnings.simplefilter("always")
             result = collect(y_true, y_pred, sf)
             assert result["low_sample_warning"] is True

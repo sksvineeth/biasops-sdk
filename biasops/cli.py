@@ -20,13 +20,17 @@ def cli():
 def check(model, x_test_path, y_test_path, policies, protected,
           domain, output_dir, warn_only, policy_dir, y_col):
     """Evaluate a model against BiasOps compliance policies. Exits 0=pass, 1=block."""
-    import joblib, pandas as pd
+    import joblib
+    import pandas as pd
     from .biasops import eval as biasops_eval, BiasOpsBlockError
 
     def _load(path):
-        if path.endswith(".parquet"): return pd.read_parquet(path)
-        if path.endswith(".csv"):     return pd.read_csv(path)
-        click.echo(f"Unsupported format: {path}", err=True); sys.exit(2)
+        if path.endswith(".parquet"):
+            return pd.read_parquet(path)
+        if path.endswith(".csv"):
+            return pd.read_csv(path)
+        click.echo(f"Unsupported format: {path}", err=True)
+        sys.exit(2)
 
     try:
         fitted_model = joblib.load(model)
@@ -40,9 +44,11 @@ def check(model, x_test_path, y_test_path, policies, protected,
                      warn_only=warn_only, policy_dir=policy_dir)
         sys.exit(0)
     except BiasOpsBlockError as e:
-        click.echo(str(e), err=True); sys.exit(1)
+        click.echo(str(e), err=True)
+        sys.exit(1)
     except Exception as e:
-        click.echo(f"BiasOps error: {e}", err=True); sys.exit(2)
+        click.echo(f"BiasOps error: {e}", err=True)
+        sys.exit(2)
 
 def main():
     cli()

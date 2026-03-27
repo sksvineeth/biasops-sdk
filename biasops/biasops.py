@@ -1,7 +1,5 @@
 from __future__ import annotations
 import textwrap
-from pathlib import Path
-from typing import Optional, Union
 import pandas as pd
 from .adapter   import collect
 from .artifact  import build, write

@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from biasops.evaluator import load_policy, evaluate, _normalise_rules, _is_effective
+from biasops.evaluator import load_policy, evaluate, _is_effective
 
 
 # ---------------------------------------------------------------------------

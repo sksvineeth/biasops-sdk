@@ -5,7 +5,6 @@ import json
 import tempfile
 from pathlib import Path
 
-import pytest
 
 from biasops.artifact import build, write, BIASOPS_VERSION
 
