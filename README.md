@@ -1,4 +1,4 @@
-# BiasOps
+# BiasOps - SDK
 
 Policy-as-code enforcement for AI governance.
 
