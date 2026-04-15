@@ -2,7 +2,7 @@
 
 Policy-as-code enforcement for AI governance.
 
-## Install
+## Install #PyPi Package available
 ```bash
 pip install biasops
 ```
